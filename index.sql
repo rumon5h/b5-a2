@@ -58,3 +58,7 @@ INSERT INTO sightings (ranger_id, species_id, sighting_time, location, notes) va
     -- Problem 2
 
     select count(distinct species_id) AS unique_species_count FROM sightings;
+
+    -- Problem 3
+
+    SELECT * FROM sightings WHERE location LIKE '%Pass%';
