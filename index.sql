@@ -49,16 +49,20 @@ INSERT INTO sightings (ranger_id, species_id, sighting_time, location, notes) va
     ( 2, 1, '2024-05-18 18:30:00', 'Snowfall Pass', NULL);
 
 
-
     -- Problem 1
-    
     INSERT INTO rangers(name,region) values('Derek Fox','Derek Fox');
 
 
     -- Problem 2
-
     select count(distinct species_id) AS unique_species_count FROM sightings;
 
-    -- Problem 3
 
+    -- Problem 3
     SELECT * FROM sightings WHERE location LIKE '%Pass%';
+
+
+    -- Problem 4
+    SELECT r.name, COUNT(s.sighting_id) AS total_sightings
+    FROM rangers r
+    LEFT JOIN sightings s ON r.ranger_id = s.ranger_id
+    GROUP BY r.ranger_id, r.name;
