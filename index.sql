@@ -31,19 +31,30 @@ CREATE INDEX idx_sightings_ranger ON sightings(ranger_id);
 CREATE INDEX idx_sightings_species ON sightings(species_id);
 
 
-INSERT INTO rangers (ranger_id, name, region) VALUES
-    (1, 'Alice Green', 'Northern Hills'),
-    (2, 'Bob White', 'River Delta'),
-    (3, 'Carol King', 'Mountain Range');
-INSERT INTO species (species_id, common_name, scientific_name, discovery_date, conservation_status) VALUES
-    (1, 'Snow Leopard', 'Panthera uncia', '1775-01-01', 'Endangered'),
-    (2, 'Bengal Tiger', 'Panthera tigris tigris', '1758-01-01', 'Endangered'),
-    (3, 'Red Panda', 'Ailurus fulgens', '1825-01-01', 'Vulnerable'),
-    (4, 'Asiatic Elephant', 'Elephas maximus indicus', '1758-01-01', 'Endangered');
-INSERT INTO sightings (sighting_id, ranger_id, species_id, sighting_time, location, notes) VALUES
-    (1, '1', '1', '2024-05-10 07:45:00', 'Peak Ridge', 'Camera trap image captured'),
-    (2, '2', '2', '2024-05-12 16:20:00', 'Bankwood Area', 'Juvenile seen'),
-    (3, '3', '3', '2024-05-15 09:10:00', 'Bamboo Grove East', 'Feeding observed'),
-    (4, '2', '1', '2024-05-18 18:30:00', 'Snowfall Pass', NULL);
+INSERT INTO rangers ( name, region) values
+    ( 'Alice Green', 'Northern Hills'),
+    ( 'Bob White', 'River Delta'),
+    ( 'Carol King', 'Mountain Range');
 
+
+INSERT INTO species (common_name, scientific_name, discovery_date, conservation_status) values
+    ( 'Snow Leopard', 'Panthera uncia', '1775-01-01', 'Endangered'),
+    ( 'Bengal Tiger', 'Panthera tigris tigris', '1758-01-01', 'Endangered'),
+    ( 'Red Panda', 'Ailurus fulgens', '1825-01-01', 'Vulnerable'),
+    ( 'Asiatic Elephant', 'Elephas maximus indicus', '1758-01-01', 'Endangered');
+INSERT INTO sightings (ranger_id, species_id, sighting_time, location, notes) values
+    ( 1, 1, '2024-05-10 07:45:00', 'Peak Ridge', 'Camera trap image captured'),
+    ( 2, 2, '2024-05-12 16:20:00', 'Bankwood Area', 'Juvenile seen'),
+    ( 3, 3, '2024-05-15 09:10:00', 'Bamboo Grove East', 'Feeding observed'),
+    ( 2, 1, '2024-05-18 18:30:00', 'Snowfall Pass', NULL);
+
+
+
+    -- Problem 1
     
+    INSERT INTO rangers(name,region) values('Derek Fox','Derek Fox');
+
+
+    -- Problem 2
+
+    select count(distinct species_id) AS unique_species_count FROM sightings;
