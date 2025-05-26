@@ -72,3 +72,13 @@ INSERT INTO sightings (ranger_id, species_id, sighting_time, location, notes) va
     FROM species s
     LEFT JOIN sightings si ON s.species_id = si.species_id
     WHERE si.sighting_id IS NULL;
+
+
+    -- Problem 6
+    SELECT s.common_name, si.sighting_time, r.name
+    FROM sightings si
+    JOIN species s ON si.species_id = s.species_id
+    JOIN rangers r ON si.ranger_id = r.ranger_id
+    ORDER BY si.sighting_time DESC
+    LIMIT 2;
+
