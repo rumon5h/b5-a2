@@ -82,3 +82,8 @@ INSERT INTO sightings (ranger_id, species_id, sighting_time, location, notes) va
     ORDER BY si.sighting_time DESC
     LIMIT 2;
 
+    -- Problem 7
+    UPDATE species
+    SET conservation_status = 'Historic'
+    WHERE discovery_date < '1800-01-01';
+
